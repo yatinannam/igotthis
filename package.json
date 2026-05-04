@@ -3,15 +3,26 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
+    "dev": "doppler run -- bunx next dev",
+    "build": "doppler run -- bunx prisma generate && doppler run -- bunx next build",
+    "start": "doppler run -- bunx next start",
+    "lint": "bunx eslint",
+    "db:generate": "doppler run -- bunx prisma generate",
+    "db:migrate": "doppler run -- bunx prisma migrate dev",
+    "db:push": "doppler run -- bunx prisma db push",
+    "db:studio": "doppler run -- bunx prisma studio"
   },
   "dependencies": {
+    "@prisma/client": "5",
+    "bcryptjs": "^3.0.3",
+    "framer-motion": "^12.38.0",
+    "jose": "^6.2.3",
+    "lucide-react": "^1.14.0",
     "next": "16.2.4",
+    "prisma": "5",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "zod": "^4.4.2"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
